@@ -3,6 +3,35 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {createStore} from 'redux';
+
+
+
+//STORE holds all the info in state it is globalized
+
+//ACTION INCREMENT describes what you want to do. 
+const incerment = () =>{
+  return {
+    type:'INCREMENT' 
+  }
+}
+const decrement = () => {
+  return{
+    type: 'DECREMENT'
+  }
+}
+//REDUCER desribes how actions describe one state into another state
+const counter = (state = 0, action) => {
+  switch(action.type){
+    case "INCREMENT":
+      return state+1;
+    case "DECREMENT":
+      return state-1;
+  }
+}
+
+let store = createStore(conter);
+//DISPATCH send action to reducer
 
 ReactDOM.render(
   <React.StrictMode>
