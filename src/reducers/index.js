@@ -1,8 +1,10 @@
-const loggedReducer = (state = false, action) =>{
-    switch (action.type){
-        case 'SIGN_IN':
-            return !state;
-    }
-}
+import counterReducer from './counter';
+import isLoggedReducer from './isLogges';
+import { combineReducers } from 'redux';
 
-export default loggedReducer;
+const allReducers = combineReducers({
+    counter: counterReducer,
+    isLogged: isLoggedReducer
+})
+
+export default allReducers;
