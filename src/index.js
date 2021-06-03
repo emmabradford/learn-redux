@@ -30,8 +30,14 @@ const counter = (state = 0, action) => {
   }
 }
 
-let store = createStore(conter);
+let store = createStore(counter);
+
+//display the stuff in the consele
+store.subscribe(()=> console.log(store.getState()));
+
 //DISPATCH send action to reducer
+store.dispatch(incerment());
+store.dispatch(decrement());
 
 ReactDOM.render(
   <React.StrictMode>
